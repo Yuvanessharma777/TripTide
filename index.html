@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripTide | Your Next Adventure</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#">✈ TripTide</a>
+    <nav>
+      <a href="#destinations">Destinations</a>
+      <a href="#planner">Plan a Trip</a>
+      <a href="#saved">My Trips</a>
+    </nav>
+    <a class="nav-button" href="#planner">Start Planning ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR JOURNEY STARTS HERE</span>
+        <h1>Collect moments,<br>not <span>things.</span></h1>
+        <p>Discover amazing places, plan your perfect itinerary,
+          and make every journey unforgettable.</p>
+        <a class="primary-button" href="#destinations">Explore destinations →</a>
+        <div class="hero-stats">
+          <div><strong>12+</strong><small>Destinations</small></div>
+          <div><strong>Easy</strong><small>Trip planning</small></div>
+          <div><strong>Free</strong><small>To get started</small></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="sun"></div>
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
+        <div class="lake"></div>
+        <div class="floating-note">🌍 Your next adventure awaits</div>
+        <div class="hero-label"><span>✦</span> Find your happy place</div>
+      </div>
+    </section>
+
+    <section class="section" id="destinations">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">FIND YOUR ESCAPE</span>
+          <h2>Explore destinations</h2>
+          <p>From peaceful beaches to exciting city breaks.</p>
+        </div>
+        <span class="result-count" id="resultCount">12 places</span>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search"
+          placeholder="Search a destination..." aria-label="Search destinations">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="All">All destinations</option>
+          <option value="Beach">Beaches</option>
+          <option value="Mountain">Mountains</option>
+          <option value="City">Cities</option>
+          <option value="Nature">Nature</option>
+        </select>
+        <select id="budgetFilter" aria-label="Filter by budget">
+          <option value="All">Any budget</option>
+          <option value="Budget">Budget friendly</option>
+          <option value="Mid-range">Mid-range</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+
+      <div class="destination-grid" id="destinationGrid"></div>
+      <p class="empty-state hidden" id="emptyState">No destinations found. Try another search.</p>
+    </section>
+
+    <section class="planner-section" id="planner">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MAKE IT HAPPEN</span>
+          <h2>Plan your next trip</h2>
+          <p>Choose a destination and build your own travel plan.</p>
+        </div>
+      </div>
+
+      <div class="planner-card">
+        <form id="tripForm">
+          <div class="form-grid">
+            <label>Trip name
+              <input id="tripName" type="text" placeholder="e.g. Summer escape" required>
+            </label>
+            <label>Destination
+              <select id="tripDestination" required></select>
+            </label>
+            <label>Start date
+              <input id="startDate" type="date" required>
+            </label>
+            <label>Number of days
+              <input id="tripDays" type="number" min="1" max="60" value="3" required>
+            </label>
+            <label>Budget per day (₹)
+              <input id="dailyBudget" type="number" min="0" value="2500" required>
+            </label>
+            <label>Travel style
+              <select id="travelStyle">
+                <option>Relaxed</option>
+                <option>Adventure</option>
+                <option>Culture & Food</option>
+                <option>Family Friendly</option>
+              </select>
+            </label>
+          </div>
+          <button class="primary-button" type="submit">Create my itinerary ✦</button>
+        </form>
+        <p class="form-message" id="formMessage" role="status"></p>
+      </div>
+
+      <div class="itinerary hidden" id="itinerary">
+        <div class="itinerary-top">
+          <div>
+            <span class="eyebrow">YOUR TRAVEL BLUEPRINT</span>
+            <h3 id="itineraryTitle">Your trip</h3>
+            <p id="itinerarySummary"></p>
+          </div>
+          <button class="secondary-button" id="saveTripButton">♡ Save trip</button>
+        </div>
+        <div class="budget-panel">
+          <div><span>Estimated total budget</span><strong id="totalBudget">₹0</strong></div>
+          <div><span>Daily budget</span><strong id="shownDailyBudget">₹0</strong></div>
+          <div><span>Trip duration</span><strong id="shownDays">0 days</strong></div>
+        </div>
+        <h4>Your suggested itinerary</h4>
+        <div id="itineraryDays" class="itinerary-days"></div>
+        <p class="disclaimer">Budget is an estimate based on your daily budget. Activities are suggestions, not bookings.</p>
+      </div>
+    </section>
+
+    <section class="section saved-section" id="saved">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">KEEP THE MEMORIES CLOSE</span>
+          <h2>My saved trips</h2>
+          <p>Your saved travel plans stay in this browser.</p>
+        </div>
+      </div>
+      <div class="saved-grid" id="savedTrips"></div>
+      <p class="empty-state" id="savedEmpty">No saved trips yet. Create a trip and save it here!</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">✈ TripTide</a>
+    <p>Made for curious minds and unforgettable journeys.</p>
+    <small>© 2026 TripTide · Student portfolio project</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
